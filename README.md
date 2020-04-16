@@ -3,7 +3,7 @@ HDT for NLP + ML + KG applications
 
 1. Install [HDT C++](https://github.com/rdfhdt/hdt-cpp)
 
-Tips:
+Troubleshooting:
 
 ** copy serd/serd.h into src/libhdt folder
 
