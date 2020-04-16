@@ -1,5 +1,5 @@
 # hdt_tutorial
-HDT for NLP + ML + KG
+HDT for NLP + ML + KG applications
 
 1. Install [HDT C++](https://github.com/rdfhdt/hdt-cpp)
 
@@ -10,4 +10,7 @@ cd pyHDT/
 ./install.sh
 ```
 
-3. Download HDT file and its index from http://www.rdfhdt.org/datasets/
+3. Download HDT file and its index (if available) from http://www.rdfhdt.org/datasets/
+```
+wget http://gaia.infor.uva.es/hdt/freebase-rdf-2013-12-01-00-00.hdt.gz
+```
