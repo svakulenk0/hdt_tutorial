@@ -8,8 +8,10 @@ Troubleshooting:
 ** copy serd/serd.h into src/libhdt folder
 
 ** configure path to serd library:
+```
 export LD_LIBRARY_PATH=/my_folder/serd-0/build
-
+make check SERD_LIBS="-L/ivi/ilps/personal/svakule/serd-0/build/ -lserd-0" SERD_CFLAGS="-I/ivi/ilps/personal/svakule/serd-0/serd"
+```
 
 2. Install [pyHDT](https://github.com/webdata/pyHDT):
 ```
