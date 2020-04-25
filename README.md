@@ -29,18 +29,18 @@ wget http://gaia.infor.uva.es/hdt/freebase-rdf-2013-12-01-00-00.hdt.gz
 
 4. Dump entity and predicate labels into separate files:
 ```
-  -o                      Dump also objects
+  -o Dump also objects
 
-  -u                      Dump only URIs
+  -u Dump only URIs
 
-  -p <exportPredicateFile>                        exportPredicateFile (outPred.txt by default)
+  -p <exportPredicateFile> exportPredicateFile (outPred.txt by default)
 
-  -t <exportTermsFile>            portTermsFile (outTerms.txt by default)
+  -t <exportTermsFile> portTermsFile (outTerms.txt by default)
 
 ```
 e.g.
 ```
 hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t -u wikidata20200309Entities.txt
-hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t
-hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p
+hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t wikidata20200309Terms.txt
+hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p wikidata20200309Pred.txt
 ```
