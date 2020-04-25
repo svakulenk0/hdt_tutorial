@@ -40,7 +40,7 @@ wget http://gaia.infor.uva.es/hdt/freebase-rdf-2013-12-01-00-00.hdt.gz
 ```
 e.g.
 ```
-hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t -u wikidata20200309Entities.txt
+hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -u -t wikidata20200309Entities.txt
 hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t wikidata20200309Terms.txt
 hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p wikidata20200309Pred.txt
 ```
