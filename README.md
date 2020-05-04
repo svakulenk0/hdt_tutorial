@@ -2,6 +2,13 @@
 
 1. Install [HDT C++](https://github.com/rdfhdt/hdt-cpp)
 
+```
+./autogen.sh
+./configure
+make -j2
+make install
+```
+
 Troubleshooting:
 
 ** copy serd/serd.h into src/libhdt folder
