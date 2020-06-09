@@ -1,5 +1,7 @@
 # hdt_tutorial
 
+## Initial Setup
+
 1. Install [HDT C++](https://github.com/rdfhdt/hdt-cpp)
 
 ```
@@ -34,7 +36,9 @@ or
 wget http://gaia.infor.uva.es/hdt/freebase-rdf-2013-12-01-00-00.hdt.gz
 ```
 
-4. Dump entity and predicate labels into separate files:
+## Setup an Entity Catalog
+
+1. Dump entity (predicate) labels into a separate file:
 ```
   -o Dump also objects
 
@@ -51,3 +55,13 @@ hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -u -t wikidata202003
 hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -o -t wikidata20200309Terms.txt
 hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p wikidata20200309Pred.txt
 ```
+
+2. Setup Elastic Search
+
+Make sure ES is running with
+
+```
+curl -XGET 'http://localhost:9200'
+```
+
+3. Index entity labels into Elastic Search to create an entity catalog:
