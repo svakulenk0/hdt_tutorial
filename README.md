@@ -58,6 +58,10 @@ hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p wikidata20200309Pred
 
 2. Setup Elastic Search
 
+```
+./bin/elasticsearch -d
+```
+
 Make sure ES is running with
 
 ```
