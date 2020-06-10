@@ -78,3 +78,7 @@ curl -XGET 'http://localhost:9200'
 3. Define index mapping in ES (see mapping.json)
 
 4. Index entity labels into Elastic Search to create an entity catalog:
+
+```
+python index_entities.py 
+```

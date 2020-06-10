@@ -53,25 +53,26 @@ def parse_label(entity_label):
 # define streaming function
 def uris_stream(index_name, file_path, ns_filter=None):
     with io.open(file_path, "r", encoding='utf-8') as infile:
-        for i, line in enumerate(infile):
+        for i, line in enumerate(infile[24600000:]):
             # skip URIs if there is a filter set
             if ns_filter:
                 if not line.startswith(ns_filter):
                     continue
             # line example http://rdf.freebase.com/ns/american_football.football_player.games;11;Games
             parse = line.split(';')
-            entity_uri = parse[0]
-            count = parse[1]
-            entity_label = parse[2].strip()
-            # print(entity_label)
-            label_words = parse_label(entity_label)
+            if len(parse) == 3:
+                entity_uri = parse[0]
+                count = parse[1]
+                entity_label = parse[2].strip()
+                print(entity_label)
+                label_words = parse_label(entity_label)
 
-            data_dict = {'uri': entity_uri, 'label': label_words,
-                         'count': count, "id": i+1, 'label_exact': entity_label}
+                data_dict = {'uri': entity_uri, 'label': label_words,
+                             'count': count, "id": i+1, 'label_exact': entity_label}
 
-            yield {"_index": index_name,
-                   "_source": data_dict
-                   }
+                yield {"_index": index_name,
+                       "_source": data_dict
+                       }
 
 # index entities
 import io
