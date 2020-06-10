@@ -61,7 +61,7 @@ def uris_stream(index_name, file_path):
                     entity_uri = parse[0]
                     count = parse[1]
                     entity_label = parse[2].strip()
-                    print(entity_label)
+                    # print(entity_label)
                     label_words = parse_label(entity_label)
 
                     data_dict = {'uri': entity_uri, 'label': label_words,
