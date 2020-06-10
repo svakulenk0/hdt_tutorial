@@ -53,7 +53,7 @@ def parse_label(entity_label):
 # define streaming function
 def uris_stream(index_name, file_path, ns_filter=None):
     with io.open(file_path, "r", encoding='utf-8') as infile:
-        for i, line in enumerate(infile[24600000:]):
+        for i, line in enumerate(infile)[24600000:]:
             # skip URIs if there is a filter set
             if ns_filter:
                 if not line.startswith(ns_filter):
