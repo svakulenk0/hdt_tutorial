@@ -29,7 +29,6 @@ from elasticsearch import TransportError
 
 # setup
 es = Elasticsearch()
-doc_type = 'entities'  # for mapping
 
 import re
 import string
@@ -52,7 +51,7 @@ def parse_label(entity_label):
 
 
 # define streaming function
-def uris_stream(index_name, file_path, doc_type, ns_filter=None):
+def uris_stream(index_name, file_path, ns_filter=None):
     with io.open(file_path, "r", encoding='utf-8') as infile:
         for i, line in enumerate(infile):
             # skip URIs if there is a filter set
@@ -64,14 +63,13 @@ def uris_stream(index_name, file_path, doc_type, ns_filter=None):
             entity_uri = parse[0]
             count = parse[1]
             entity_label = parse[2].strip()
-            print(entity_label)
+            # print(entity_label)
             label_words = parse_label(entity_label)
 
             data_dict = {'uri': entity_uri, 'label': label_words,
                          'count': count, "id": i+1, 'label_exact': entity_label}
 
             yield {"_index": index_name,
-                   "_type": doc_type,
                    "_source": data_dict
                    }
 
@@ -85,7 +83,7 @@ index_name = '%se' % KB  # entities index
 # iterate through input file in batches via streaming bulk
 print("bulk indexing...")
 try:
-    for ok, response in streaming_bulk(es, actions=uris_stream(index_name, file_path, doc_type),
+    for ok, response in streaming_bulk(es, actions=uris_stream(index_name, file_path),
                                        chunk_size=100000):
         if not ok:
             # failure inserting
