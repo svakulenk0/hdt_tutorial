@@ -58,8 +58,15 @@ hdt-cpp/libhdt/tests/dumpDictionary wikidata20200309.hdt -p wikidata20200309Pred
 
 2. Setup Elastic Search
 
+Point to the JDK in Elastic Search
 ```
-./bin/elasticsearch -d
+export JAVA_HOME=YOUR_PATH/elasticsearch-7.6.1/jdk
+```
+
+Run Elastic Search
+
+```
+./bin/elasticsearch
 ```
 
 Make sure ES is running with

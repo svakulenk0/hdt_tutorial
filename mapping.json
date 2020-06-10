@@ -3,6 +3,7 @@ curl -X PUT "localhost:9200/freebase201312e" -H 'Content-Type: application/json'
   "settings": {
     "number_of_shards": 1,
     "number_of_replicas": 0,
+    "max_ngram_diff" : 50,
     "analysis": {
       "analyzer": {
         "default_analyzer": {
@@ -40,7 +41,6 @@ curl -X PUT "localhost:9200/freebase201312e" -H 'Content-Type: application/json'
     }
   },
   "mappings": {
-    "entities": {
       "properties": {
         "label": {
           "type": "text",
@@ -55,7 +55,6 @@ curl -X PUT "localhost:9200/freebase201312e" -H 'Content-Type: application/json'
         "uri": { "type" : "keyword" },
         "id": { "type" : "keyword" }
       }
-    }
   }
 }
 '
