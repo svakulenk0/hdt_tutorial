@@ -28,7 +28,7 @@ from elasticsearch.helpers import streaming_bulk
 from elasticsearch import TransportError
 
 # setup
-es = Elasticsearch()
+es = Elasticsearch(timeout=300)
 
 import re
 import string
@@ -54,7 +54,7 @@ def parse_label(entity_label):
 def uris_stream(index_name, file_path):
     with io.open(file_path, "r", encoding='utf-8') as infile:
         for i, line in enumerate(infile):
-            if i > 32100000 - 1:
+            if i > 38000000 - 1:
                 # line example http://rdf.freebase.com/ns/american_football.football_player.games;11;Games
                 parse = line.split(';')
                 if len(parse) == 3:
