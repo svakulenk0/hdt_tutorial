@@ -77,7 +77,8 @@ def uris_stream(index_name, file_path, doc_type, ns_filter=None):
 # index entities
 import io
 KB = 'freebase201312'  # dbpedia201604 or wikidata201809
-file_path = "freebase-rdf-2013-12-01-00-00Entities.txt"
+hdt_file = "freebase-rdf-2013-12-01-00-00Entities.txt"
+file_path = '../%s' % hdt_file
 index_name = '%se' % KB  # entities index
 
 # iterate through input file in batches via streaming bulk
